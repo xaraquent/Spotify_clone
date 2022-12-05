@@ -4,7 +4,7 @@ export const liveURL = process.env.REACT_APP_LIVE_URL;
 export const devURL = 'http://localhost:3000/';
 export const redirectURL = process.env.NODE_ENV === 'production' ? liveURL : devURL;
 
-export const scope = [
+export const scopes = [
     'playlist-read-collaborative',
     'playlist-modify-public',
     'playlist-read-private',
