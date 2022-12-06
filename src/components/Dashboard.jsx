@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Sidenav from './Sidenav';
+import SideNav from './SideNav';
 import { Box } from '@mui/material';
 import Home from '../pages/Home';
+import { useDispatch } from 'react-redux';
+import { getPlaylist } from '../store/playlistSlice';
+import { getAccessTokenFromStorage } from '../utils/getAccessTokenFromStorage';
 
-export default function Dashboard() {
+export default function Dashboard({ spotifyApi }) {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const accessToken = getAccessTokenFromStorage();
+
+        const onMount = async () => {
+            await spotifyApi.setAccessToken(accessToken);
+            dispatch(getPlaylist(spotifyApi));
+        };
+
+        if (accessToken) {
+            onMount();
+        }
+    }, []);
+
     return (
         <Box
             sx={{
@@ -21,7 +39,7 @@ export default function Dashboard() {
                     display: 'flex',
                 }}
             >
-                <Sidenav />
+                <SideNav />
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/library' element={<h1>Library</h1>} />

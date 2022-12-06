@@ -18,7 +18,7 @@ function App({ spotifyApi }) {
         }
     }, []);
 
-    return <Box className='App'>{token ? <Dashboard /> : <Login />}</Box>;
+    return <Box className='App'>{token ? <Dashboard spotifyApi={spotifyApi} /> : <Login />}</Box>;
 }
 
 export default App;
