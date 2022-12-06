@@ -29,7 +29,7 @@ export default function SideNav() {
                 flexDirection: 'column',
             }}
         >
-            <Box>
+            <Box p={3}>
                 <img src='/Spotify_Logo.png' width={'75%'} alt='Spotify' />
             </Box>
             <NavItem name='Home' Icon={HomeRoundedIcon} target='/' active />
