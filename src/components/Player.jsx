@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Box, Grid, Typography, Avatar } from '@mui/material';
 import { getAccessTokenFromStorage } from '../utils/getAccessTokenFromStorage';
 import PlayerControls from './PlayerControls';
+import PlayerVolume from './PlayerVolume';
+import PlayerOverlay from './PlayerOverlay';
 
 export default function Player({ spotifyApi }) {
     const track = {
@@ -18,6 +20,7 @@ export default function Player({ spotifyApi }) {
     const [device, setDevice] = useState(null);
     const [duration, setDuration] = useState(null);
     const [progress, setProgress] = useState(null);
+    const [playerOverlayIsOpen, setPlayerOverlayIsOpen] = useState(false);
 
     useEffect(() => {
         const token = getAccessTokenFromStorage();
@@ -88,6 +91,9 @@ export default function Player({ spotifyApi }) {
             <Grid
                 container
                 px={3}
+                onClick={() => {
+                    setPlayerOverlayIsOpen((c) => !c);
+                }}
                 sx={{
                     bgcolor: 'Background.paper',
                     height: 100,
@@ -107,16 +113,16 @@ export default function Player({ spotifyApi }) {
                     }}
                 >
                     <Avatar
-                        src={
-                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYRbVygZrmKYrNyzTKfcv1UcsKBBvKbQWvIA&usqp=CAU'
-                        }
+                        src={current_track?.album.images[0].url}
                         alt={'#'}
                         variant='square'
                         sx={{ width: 56, height: 56, marginRight: 2 }}
                     />
                     <Box>
-                        <Typography sx={{ color: 'text.primary', fontSize: 14 }}>Baby</Typography>
-                        <Typography sx={{ color: 'text.secondary', fontSize: 12 }}>Justin Bieber</Typography>
+                        <Typography sx={{ color: 'text.primary', fontSize: 14 }}>{current_track?.name}</Typography>
+                        <Typography sx={{ color: 'text.secondary', fontSize: 12 }}>
+                            {current_track?.artists[0].name}
+                        </Typography>
                     </Box>
                 </Grid>
                 <Grid
@@ -128,9 +134,24 @@ export default function Player({ spotifyApi }) {
                         alignItems: 'center',
                     }}
                 >
-                    Player controller
+                    <PlayerControls
+                        progress={progress}
+                        is_paused={is_paused}
+                        duration={duration}
+                        player={localPlayer}
+                    />
                 </Grid>
+                <PlayerVolume player={localPlayer} />
             </Grid>
+            <PlayerOverlay
+                progress={progress}
+                is_paused={is_paused}
+                duration={duration}
+                player={localPlayer}
+                playerOverlayIsOpen={playerOverlayIsOpen}
+                closeOverlay={() => setPlayerOverlayIsOpen(false)}
+                current_track={current_track}
+            />
         </Box>
     );
 }

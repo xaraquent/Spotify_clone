@@ -8,6 +8,7 @@ import { getPlaylist } from '../store/playlistSlice';
 import { getAccessTokenFromStorage } from '../utils/getAccessTokenFromStorage';
 import Playlist from '../pages/Playlist';
 import Player from './Player';
+import MobileNav from './MobileNav';
 
 export default function Dashboard({ spotifyApi }) {
     const [token, setToken] = useState(null);
@@ -51,6 +52,7 @@ export default function Dashboard({ spotifyApi }) {
                 </Routes>
             </Box>
             {token && <Player spotifyApi={spotifyApi} />}
+            <MobileNav />
         </Box>
     );
 }
