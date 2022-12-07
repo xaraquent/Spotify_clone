@@ -9,6 +9,7 @@ import { getAccessTokenFromStorage } from '../utils/getAccessTokenFromStorage';
 import Playlist from '../pages/Playlist';
 import Player from './Player';
 import MobileNav from './MobileNav';
+import Library from '../pages/Library';
 
 export default function Dashboard({ spotifyApi }) {
     const [token, setToken] = useState(null);
@@ -47,7 +48,7 @@ export default function Dashboard({ spotifyApi }) {
                 <SideNav />
                 <Routes>
                     <Route path='/' element={<Home />} />
-                    <Route path='/library' element={<h1>Library</h1>} />
+                    <Route path='/library' element={<Library />} />
                     <Route path='/playlist/:id' element={<Playlist spotifyApi={spotifyApi} />} />
                 </Routes>
             </Box>
