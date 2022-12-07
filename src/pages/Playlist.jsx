@@ -1,26 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Avatar, Box, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import SongTable from '../components/SongTable';
 
 export default function Playlist({ spotifyApi }) {
-    const { id } = useParams();
-    const [playlistInfo, setPlaylistInfo] = useState({});
+    const [playlistInfo, setPlaylistInfo] = useState();
     const [songs, setSongs] = useState([]);
+    const [status, setStatus] = useState({ isLoading: false, isError: null });
+    const { id } = useParams();
+
+    const formatSongData = useCallback(
+        (songs) => {
+            return songs.map((song, i) => {
+                const { track } = song;
+                track.contextUri = `spotify:playlist:${id}`;
+                track.position = i;
+                return track;
+            });
+        },
+        [id]
+    );
 
     useEffect(() => {
-        async function getSongs() {
-            const data = await spotifyApi.getPlaylist(id);
+        const getData = async () => {
+            setStatus((prev) => ({ ...prev, isLoading: true }));
+            try {
+                const playlistDetail = await spotifyApi.getPlaylist(id);
+                setPlaylistInfo({
+                    image: playlistDetail.body.images[0].url,
+                    name: playlistDetail.body.name,
+                });
 
-            console.log(data);
-            setPlaylistInfo({
-                name: data.body.name,
-                image: data.body.images[0].url,
-            });
-            setSongs(data.body.tracks.items);
-        }
-        getSongs();
-    }, [id, spotifyApi]);
+                const { tracks } = playlistDetail.body;
+                const formattedSongs = formatSongData(tracks.items);
+                setSongs(formattedSongs);
+            } catch (error) {
+                setStatus((prev) => ({ ...prev, isError: error }));
+            }
+        };
+
+        getData().finally(() => {
+            setStatus((prev) => ({ ...prev, isLoading: false }));
+        });
+    }, [formatSongData, id, spotifyApi]);
 
     return (
         <Box
@@ -64,7 +86,7 @@ export default function Playlist({ spotifyApi }) {
                     </Typography>
                 </Box>
             </Box>
-            <SongTable />
+            <SongTable songs={songs} loading={status.isLoading} spotifyApi={spotifyApi} />
         </Box>
     );
 }

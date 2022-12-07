@@ -20,11 +20,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <BrowserRouter>
-            <Provider store={store}>
-                <ThemeProvider theme={themeOptions}>
+            <ThemeProvider theme={themeOptions}>
+                <Provider store={store}>
                     <App spotifyApi={spotifyApi} />
-                </ThemeProvider>
-            </Provider>
+                </Provider>
+            </ThemeProvider>
         </BrowserRouter>
     </React.StrictMode>
 );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar, Box, Typography, Grid, Skeleton } from '@mui/material';
-import { formatTime } from '../../utils/formatTime';
-import { playSongFromList } from '../../store/playerSlice';
+import { formatTime } from '../utils/formatTime';
+import { playSongFromList } from '../store/playerSlice';
 import { useDispatch } from 'react-redux';
 
 export default function SongRow({
@@ -17,7 +17,9 @@ export default function SongRow({
     position,
 }) {
     const image = images?.length > 0 ? images[0] : null;
+
     const dispatch = useDispatch();
+
     const onRowClick = () => {
         const song = {
             context_uri: contextUri,

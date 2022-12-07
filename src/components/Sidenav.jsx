@@ -14,8 +14,8 @@ export default function SideNav() {
                 return <NavPlaylist key={index} loading={status.isLoading} />;
             });
         }
-        return albumList.map((playlist, idx) => {
-            return <NavPlaylist key={idx} id={playlist.id} name={playlist.name} loading={status.isLoading} />;
+        return albumList.map((playlist, index) => {
+            return <NavPlaylist key={index} id={playlist.id} name={playlist.name} loading={status.isLoading} />;
         });
     };
 

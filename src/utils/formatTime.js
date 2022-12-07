@@ -1,4 +1,4 @@
-export default function formatTime(seconds) {
+export function formatTime(seconds) {
     const rest = (seconds % 60).toFixed(0);
     const min = Math.floor(seconds / 60);
     const restSeconds = rest < 10 ? `0${rest}` : rest;

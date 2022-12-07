@@ -11,9 +11,15 @@ export default function Login() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
+                flexDirection: 'column',
             }}
         >
-            <Button href={accessUrl} variant='outlined' size='large'>
+            <img
+                src='/Spotify_Logo.png'
+                alt='Spotify_clone'
+                style={{ marginBottom: 50, width: '70%', maxWidth: 450 }}
+            />
+            <Button href={accessUrl} color='primary' variant='outlined' size='large'>
                 Login to Spotify
             </Button>
         </Box>

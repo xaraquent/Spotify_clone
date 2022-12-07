@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { PlayArrow, SkipNext, SkipPrevious, Pause } from '@mui/icons-material';
 import { IconButton, Stack, Typography, Slider } from '@mui/material';
-import formatTime from '../utils/formatTime';
+import { formatTime } from '../utils/formatTime';
 
 export default function PlayerControls({ player, is_paused, duration, progress }) {
     const skipStyle = { width: 28, height: 28 };
