@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SideNav from './SideNav';
 import { Box } from '@mui/material';
@@ -7,8 +7,10 @@ import { useDispatch } from 'react-redux';
 import { getPlaylist } from '../store/playlistSlice';
 import { getAccessTokenFromStorage } from '../utils/getAccessTokenFromStorage';
 import Playlist from '../pages/Playlist';
+import Player from './Player';
 
 export default function Dashboard({ spotifyApi }) {
+    const [token, setToken] = useState(null);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -20,6 +22,7 @@ export default function Dashboard({ spotifyApi }) {
         };
 
         if (accessToken) {
+            setToken(accessToken);
             onMount();
         }
     }, []);
@@ -47,6 +50,7 @@ export default function Dashboard({ spotifyApi }) {
                     <Route path='/playlist/:id' element={<Playlist spotifyApi={spotifyApi} />} />
                 </Routes>
             </Box>
+            {token && <Player spotifyApi={spotifyApi} />}
         </Box>
     );
 }
