@@ -8,7 +8,7 @@ export default function PlayerVolume({ player }) {
 
     const handleVolumeChange = async (v) => {
         try {
-            await player.setVolume(v / 100);
+            await player.setVolume(v / 200);
         } catch (err) {
             console.error(err);
         }
@@ -23,11 +23,11 @@ export default function PlayerVolume({ player }) {
                 justifyContent: 'flex-end',
             }}
         >
-            <Stack spacing={2} direction='row' alignItems='center' sx={{ width: 150, color: 'text.secondary' }}>
-                {volume === 0 ? <VolumeOff /> : volume < 50 ? <VolumeDown /> : <VolumeUp />}
+            <Stack spacing={2} direction='row' alignItems='center' sx={{ width: 200, color: 'text.secondary' }}>
+                {volume === 0 ? <VolumeOff /> : volume < 100 ? <VolumeDown /> : <VolumeUp />}
                 <Slider
                     min={0}
-                    max={100}
+                    max={200}
                     step={1}
                     value={volume}
                     onChange={(e, v) => setVolume(v)}
