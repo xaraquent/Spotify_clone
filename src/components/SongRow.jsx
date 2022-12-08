@@ -43,7 +43,7 @@ export default function SongRow({
                 color: 'text.secondary',
                 fontSize: 14,
                 cursor: 'pointer',
-                '&:hover': { bgcolor: '#F0790030' },
+                '&:hover': { bgcolor: '#A000F050' },
             }}
             onClick={onRowClick}
         >

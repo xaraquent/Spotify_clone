@@ -29,7 +29,7 @@ export default function PlayerOverlay({
             <Container
                 sx={{
                     height: '100%',
-                    background: 'linear-gradient(0deg, #121212 0%, #F0790050 100%);',
+                    background: 'linear-gradient(0deg, #121212 0%, #A000F060 100%);',
                 }}
             >
                 <Grid container direction={'column'} justifyContent='space-between' sx={{ height: '100%' }}>
