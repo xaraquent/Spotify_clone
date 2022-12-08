@@ -50,7 +50,7 @@ export default function Playlist({ spotifyApi }) {
                 color: '#fff',
                 bgcolor: 'background.paper',
                 flex: 1,
-                overflowY: 'auto,',
+                overflowY: 'auto',
             }}
         >
             <Box
