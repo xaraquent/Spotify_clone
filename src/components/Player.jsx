@@ -15,7 +15,7 @@ export default function Player({ spotifyApi }) {
     };
 
     const [localPlayer, setPlayer] = useState(null);
-    const [is_paused, setPaused] = useState(false);
+    const [is_paused, setPaused] = useState(true);
     const [current_track, setTrack] = useState(track);
     const [device, setDevice] = useState(null);
     const [duration, setDuration] = useState(null);
