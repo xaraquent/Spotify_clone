@@ -19,7 +19,7 @@ export default function PlaylistCard({ name, description, images, id, loading })
     }
 
     return (
-        <Grid item xs={6} sm={4} md={3} lg={2}>
+        <Grid container alignItems='stretch' item xs={6} sm={4} md={3} lg={2}>
             <Card
                 sx={{
                     borderRadius: 2,
