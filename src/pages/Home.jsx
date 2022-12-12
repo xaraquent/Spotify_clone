@@ -9,7 +9,7 @@ export default function Home() {
                 flex: 1,
             }}
         >
-            Home
+            Hem
         </Box>
     );
 }

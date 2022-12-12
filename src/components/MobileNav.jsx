@@ -18,7 +18,7 @@ export default function MobileNav() {
                     setValue(newValue);
                 }}
             >
-                <BottomNavigationAction sx={styledNav} label='Home' icon={<Home />} onClick={() => navigate('/')} />
+                <BottomNavigationAction sx={styledNav} label='Hem' icon={<Home />} onClick={() => navigate('/')} />
                 <BottomNavigationAction
                     sx={styledNav}
                     label='Ditt bibliotek'
