@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import NavPlaylist from './NavPlaylist';
 import NavItem from './NavItem';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import ListIcon from '@mui/icons-material/List';
+import { useMatch } from 'react-router-dom';
 
 export default function SideNav() {
     const { status, albumList } = useSelector((state) => state.playlist);
@@ -32,7 +34,8 @@ export default function SideNav() {
             <Box p={3}>
                 <img src='/Spotify_Logo.png' width={'75%'} alt='Spotify' />
             </Box>
-            <NavItem name='Home' Icon={HomeRoundedIcon} target='/' active />
+            <NavItem name='Hem' Icon={HomeRoundedIcon} target='/' active={useMatch('/')} />
+            <NavItem name='Ditt bibliotek' Icon={ListIcon} target='/library' active={useMatch('/library')} />
             <Box px={3} py={1}>
                 <Divider sx={{ backgroundColor: '#a000f0' }} />
             </Box>
