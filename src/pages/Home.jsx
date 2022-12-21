@@ -41,6 +41,8 @@ export default function Home() {
                 width: '100vw',
                 padding: '150px 30px',
                 boxSizing: 'border-box',
+                flex: 1,
+                overflowY: 'auto',
             }}
         >
             <Box
@@ -72,7 +74,7 @@ export default function Home() {
                 </Box>
             </Box>
             <Box sx={{ ...basicBoxStyle, marginTop: '20px' }}>
-                <Divider />
+                {/* <Divider /> */}
                 <Typography padding={'20px 20px'} variant='h4' marginTop={2} color='text.primary'>
                     Technologies
                 </Typography>
