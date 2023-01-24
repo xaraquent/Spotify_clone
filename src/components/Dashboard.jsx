@@ -32,7 +32,7 @@ export default function Dashboard({ spotifyApi }) {
     return (
         <Box
             sx={{
-                height: '99vh',
+                height: '90vh',
                 // width: '100vw',
                 display: 'flex',
                 flexDirection: 'column',
