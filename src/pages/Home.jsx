@@ -64,7 +64,7 @@ export default function Home() {
                         Hi! I'm Simon
                     </Typography>
                     <Typography width={{ xs: '100%', md: '80%' }} fontSize='15px' color='text.secondary'>
-                        {loremText}
+                        {textBio}
                     </Typography>
                     <Box sx={linkBox}>
                         {links.map((link, idx) => {
@@ -174,4 +174,5 @@ const links = [
     },
 ];
 
-const loremText = 'Då testar vi och ser om de funkar';
+const textBio =
+    "I'm a frontend developer that likes to create web application with various tools like HTML, CSS, JavaScript, React, Node and MongoDB.";
