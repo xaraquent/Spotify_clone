@@ -174,4 +174,5 @@ const links = [
     },
 ];
 
-const loremText = 'Första försöket';
+const loremText =
+    "Hi I'm a frontend developer that likes to create web application with various tools like HTML, CSS, JavaScript, React, Node and MongoDB";
