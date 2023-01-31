@@ -57,7 +57,7 @@ export default function Playlist({ spotifyApi }) {
                 p={{ xs: 3, md: 4 }}
                 sx={{
                     width: '100%',
-                    background: 'linear-gradient(#121212, #A000F070)',
+                    background: { xs: 'linear-gradient(#000, #A000F070)', md: 'linear-gradient(#121212, #A000F070)' },
                     display: 'flex',
                     justifyContent: 'flex-start',
                     flexDirection: { xs: 'column', md: 'row' },
