@@ -174,4 +174,4 @@ const links = [
     },
 ];
 
-const loremText = 'Då testar vi och ser om de funkar';
+const loremText = 'Första försöket';
