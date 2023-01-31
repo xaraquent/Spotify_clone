@@ -175,4 +175,4 @@ const links = [
 ];
 
 const textBio =
-    "I'm a frontend developer that likes to create web application with various tools like HTML, CSS, JavaScript, React, Node and MongoDB.";
+    "I'm a frontend developer that likes to create web application with various tools like HTML, CSS, JavaScript, React, Node and MongoDB. ";
