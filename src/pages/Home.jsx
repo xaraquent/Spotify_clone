@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Box, Button, Divider, Grid, Typography } from '@mui/material';
 import TechCard from '../components/TechCard';
 import profilePicture from '../assets/profilePicture.jpg';
-import reactlogo from '../assets/react.png';
-import reduxlogo from '../assets/redux.png';
-import routerlogo from '../assets/routerlogo.png';
-import spotifylogo from '../assets/spotifylogo.png';
-import materialui from '../assets/mui.png';
+import reactLogo from '../assets/react.png';
+import reduxLogo from '../assets/redux.png';
+import routerLogo from '../assets/routerLogo.png';
+import spotifyLogo from '../assets/spotifyLogo.png';
+import materialUi from '../assets/mui.png';
 import netlify from '../assets/netlify.jpg';
 import linkedin from '../assets/linkedin.png';
 import github from '../assets/github.png';
@@ -27,7 +27,7 @@ export default function Home() {
 
     const LinkBox = ({ data }) => {
         return (
-            <a href='' style={linkStyle}>
+            <a href={data.link} target='_blank' style={linkStyle}>
                 <img src={data.img} style={{ width: '20px' }} />
                 {data.name}
             </a>
@@ -132,22 +132,22 @@ const linkBox = {
 const technologies = [
     {
         name: 'React',
-        img: reactlogo,
+        img: reactLogo,
         color: '#00deff55',
     },
     {
         name: 'React - router',
-        img: routerlogo,
+        img: routerLogo,
         color: '#f4425055',
     },
     {
         name: 'Redux - toolkit',
-        img: reduxlogo,
+        img: reduxLogo,
         color: '#7f44c555',
     },
     {
         name: 'Spotify Web API',
-        img: spotifylogo,
+        img: spotifyLogo,
         color: '#07da5a55',
     },
     {
@@ -157,14 +157,14 @@ const technologies = [
     },
     {
         name: 'Material UI',
-        img: materialui,
+        img: materialUi,
         color: '#3e7ff755',
     },
 ];
 const links = [
     {
         name: 'LinkedIn',
-        link: '#',
+        link: 'https://www.linkedin.com/in/simon-michael-042b23162/',
         img: linkedin,
     },
     {
